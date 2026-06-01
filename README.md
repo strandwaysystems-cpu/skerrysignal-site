@@ -16,6 +16,6 @@ This repo is connected to Cloudflare Pages. Any push to `main` auto-deploys.
 ## To-do before launch
 
 - [ ] Add founder headshot as `chandler-headshot.jpg` in repo root
-- [ ] Confirm `chandler@skerrysignal.ca` email alias is live (routed via strandwayventures.com)
+- [ ] Confirm `founder@skerrysignal.ca` email alias is live (routed via strandwayventures.com)
 - [ ] (Optional) Replace mailto form with a Make.com / form webhook once the lead pipeline is wired
 - [ ] (Optional) Swap mailto "Book" button for a Calendly link
