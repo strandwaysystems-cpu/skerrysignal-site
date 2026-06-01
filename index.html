@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skerry Signal — Exclusive Leads for Atlantic Canada Home Service Contractors</title>
+<meta name="description" content="Skerry Signal helps Atlantic Canada HVAC, plumbing, roofing, and electrical contractors get exclusive, ready-to-book leads from Google. One business per city. No long contracts.">
+<meta property="og:title" content="Skerry Signal — More Booked Jobs from Google">
+<meta property="og:description" content="Exclusive Google leads for Atlantic Canada home service contractors. One business per city.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://skerrysignal.ca">
+<link rel="canonical" href="https://skerrysignal.ca">
+<style>
+  :root{
+    --navy:#0d2438; --teal:#1b8a8f; --teal-dark:#13686c; --sand:#f5f1e8;
+    --ink:#1a2733; --muted:#5a6b78; --line:#e2ddd0; --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.6;background:var(--white)}
+  h1,h2,h3{line-height:1.2;color:var(--navy);font-weight:700}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  .btn{display:inline-block;background:var(--teal);color:#fff;font-weight:700;padding:15px 30px;border-radius:8px;font-size:1.05rem;transition:background .2s}
+  .btn:hover{background:var(--teal-dark)}
+  .btn-lg{font-size:1.15rem;padding:17px 38px}
+
+  /* Header */
+  header{position:sticky;top:0;background:var(--white);border-bottom:1px solid var(--line);z-index:50}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;max-width:1080px;margin:0 auto}
+  .logo{font-size:1.35rem;font-weight:800;color:var(--navy);letter-spacing:-.5px}
+  .logo span{color:var(--teal)}
+  .nav-phone{font-weight:700;color:var(--navy);font-size:1.05rem}
+  .nav-phone span{color:var(--teal)}
+
+  /* Hero */
+  .hero{background:linear-gradient(160deg,var(--navy) 0%,#143049 100%);color:#fff;padding:72px 0 80px}
+  .hero h1{color:#fff;font-size:2.7rem;max-width:760px;letter-spacing:-1px}
+  .hero .lede{color:#cfe0e6;font-size:1.25rem;max-width:640px;margin:20px 0 32px}
+  .hero .sub{color:#8fb4bd;font-size:.95rem;margin-top:18px}
+  .pill{display:inline-block;background:rgba(27,138,143,.22);color:#7fe3e8;font-weight:700;font-size:.82rem;letter-spacing:.5px;text-transform:uppercase;padding:7px 15px;border-radius:30px;margin-bottom:22px}
+
+  /* Sections */
+  section{padding:64px 0}
+  .section-tag{color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:.82rem;margin-bottom:10px}
+  h2{font-size:2rem;max-width:680px;margin-bottom:14px;letter-spacing:-.5px}
+  .section-intro{color:var(--muted);font-size:1.1rem;max-width:620px;margin-bottom:38px}
+
+  /* Cards */
+  .grid{display:grid;gap:20px}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-5{grid-template-columns:repeat(5,1fr)}
+  .card{background:var(--sand);border:1px solid var(--line);border-radius:12px;padding:26px}
+  .card h3{font-size:1.15rem;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.96rem}
+  .trade-card{background:var(--white);text-align:center;padding:22px 14px}
+  .trade-card .ico{font-size:1.8rem;margin-bottom:8px}
+  .trade-card h3{font-size:1rem}
+
+  /* Steps */
+  .steps{counter-reset:step}
+  .step{display:flex;gap:20px;align-items:flex-start;margin-bottom:26px}
+  .step .num{flex:0 0 46px;height:46px;background:var(--teal);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem}
+  .step h3{font-size:1.15rem;margin-bottom:4px}
+  .step p{color:var(--muted)}
+
+  /* Why band */
+  .band{background:var(--sand)}
+  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:34px}
+  .why .item h3{display:flex;align-items:center;gap:10px;font-size:1.1rem;margin-bottom:6px}
+  .why .item p{color:var(--muted)}
+  .check{color:var(--teal);font-weight:800}
+
+  /* Case logic */
+  .caselogic{background:var(--navy);color:#fff;text-align:center}
+  .caselogic h2{color:#fff;margin:0 auto 14px}
+  .caselogic p{color:#cfe0e6;font-size:1.15rem;max-width:600px;margin:0 auto 30px}
+
+  /* Contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .contact-info p{margin-bottom:14px;font-size:1.05rem}
+  .contact-info .label{color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:2px}
+  form label{display:block;font-weight:600;margin-bottom:6px;font-size:.92rem}
+  form input,form select,form textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;margin-bottom:16px;font-size:1rem;font-family:inherit}
+  .form-card{background:var(--sand);border:1px solid var(--line);border-radius:12px;padding:28px}
+
+  /* About */
+  .about{display:grid;grid-template-columns:160px 1fr;gap:28px;align-items:center}
+  .headshot{width:160px;height:160px;border-radius:12px;background:#d8d2c4 center/cover;border:1px solid var(--line)}
+  .about p{color:var(--muted)}
+
+  /* Footer */
+  footer{background:var(--navy);color:#9fb3bf;padding:34px 0;font-size:.92rem;text-align:center}
+  footer .logo{color:#fff;margin-bottom:8px;display:inline-block}
+  footer a{color:#7fe3e8}
+
+  /* Sticky mobile call */
+  .sticky-call{display:none}
+
+  @media(max-width:760px){
+    .hero h1{font-size:2rem}
+    .hero .lede{font-size:1.1rem}
+    h2{font-size:1.6rem}
+    .grid-3,.grid-5,.why,.contact-grid,.about{grid-template-columns:1fr}
+    .grid-5{grid-template-columns:1fr 1fr}
+    .nav-phone{display:none}
+    .about{text-align:center}
+    .headshot{margin:0 auto}
+    body{padding-bottom:64px}
+    .sticky-call{display:flex;position:fixed;bottom:0;left:0;right:0;background:var(--teal);color:#fff;font-weight:800;font-size:1.1rem;padding:18px;align-items:center;justify-content:center;gap:8px;z-index:60}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">Skerry<span>Signal</span></div>
+    <a class="nav-phone" href="tel:+19023307927">📞 <span>(902) 330-7927</span></a>
+  </div>
+</header>
+
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="pill">Atlantic Canada Home Services</span>
+    <h1>More booked jobs from Google. Exclusive to your business.</h1>
+    <p class="lede">We help Atlantic Canada HVAC, plumbing, roofing, and electrical contractors get exclusive, ready-to-book leads from Google — without long contracts or wasted ad spend.</p>
+    <a class="btn btn-lg" href="#contact">Book a 15-min lead audit</a>
+    <p class="sub">One business per city, per trade. Your leads stay yours.</p>
+  </div>
+</section>
+
+<!-- 2. WHO WE SERVE -->
+<section>
+  <div class="wrap">
+    <div class="section-tag">Who we serve</div>
+    <h2>Built for Atlantic Canada's trades</h2>
+    <p class="section-intro">We focus on owner-operated and small-team home service businesses across Nova Scotia, New Brunswick, PEI, and Newfoundland.</p>
+    <div class="grid grid-5">
+      <div class="card trade-card"><div class="ico">🔥</div><h3>HVAC</h3></div>
+      <div class="card trade-card"><div class="ico">🔧</div><h3>Plumbing</h3></div>
+      <div class="card trade-card"><div class="ico">🏠</div><h3>Roofing</h3></div>
+      <div class="card trade-card"><div class="ico">⚡</div><h3>Electrical</h3></div>
+      <div class="card trade-card"><div class="ico">🏭</div><h3>Industrial Supply</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. HOW IT WORKS -->
+<section class="band">
+  <div class="wrap">
+    <div class="section-tag">How it works</div>
+    <h2>Three steps to a fuller schedule</h2>
+    <div class="steps" style="margin-top:34px">
+      <div class="step"><div class="num">1</div><div><h3>We rank</h3><p>We build and rank a local site on Google and Google Maps for the searches homeowners actually use — "HVAC company Halifax," "emergency plumber," and more.</p></div></div>
+      <div class="step"><div class="num">2</div><div><h3>Leads come in</h3><p>Homeowners call or fill out the form. Our AI qualifies every lead — service type, timeline, location, homeowner status — before it ever reaches you.</p></div></div>
+      <div class="step"><div class="num">3</div><div><h3>We route to you</h3><p>Qualified leads are sent to your phone and inbox within minutes, with a full call recording. You call back, you book the job.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. WHY US -->
+<section>
+  <div class="wrap">
+    <div class="section-tag">Why Skerry Signal</div>
+    <h2>Three reasons contractors choose us</h2>
+    <div class="why">
+      <div class="item"><h3><span class="check">✓</span> Atlantic Canada focus</h3><p>We only work in NS, NB, PEI, and NL. We know these markets, the seasons, and the search behaviour — not a national template applied to your town.</p></div>
+      <div class="item"><h3><span class="check">✓</span> Exclusive leads</h3><p>One business per city, per trade. The leads we generate go to you and only you. We never sell the same lead twice.</p></div>
+      <div class="item"><h3><span class="check">✓</span> No long contracts</h3><p>Start month-to-month. If the leads aren't booking jobs, you're free to walk. We earn the relationship every month.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. CASE LOGIC -->
+<section class="caselogic">
+  <div class="wrap">
+    <h2>See the lead flow in action</h2>
+    <p>Book a 15-minute call and we'll walk you through exactly how our lead system works — how homeowner leads come in, how they're qualified, and whether your business is a fit to receive them exclusively.</p>
+    <a class="btn btn-lg" href="#contact">Book your lead audit</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="band">
+  <div class="wrap">
+    <div class="section-tag">About</div>
+    <div class="about">
+      <div class="headshot" style="background-image:url('chandler-headshot.jpg')"></div>
+      <div>
+        <h2 style="margin-bottom:10px">Built by an operator, not an agency</h2>
+        <p>Skerry Signal is run by Chandler, founder, out of Dartmouth, Nova Scotia. After years building and ranking websites, the model is simple: rank a site, generate real homeowner leads, and route them exclusively to one trusted contractor per market. No bloated retainers, no hidden ad spend, no leads sold to your competitors down the street.</p>
+        <p style="margin-top:10px">Skerry Signal is a Strandway Ventures company.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="section-tag">Get started</div>
+    <h2>Book a 15-minute lead audit</h2>
+    <p class="section-intro">Tell us your trade and city. We'll show you the lead flow and whether your market is open.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p><span class="label">Phone</span><a href="tel:+19023307927"><strong>(902) 330-7927</strong></a></p>
+        <p><span class="label">Email</span><a href="mailto:chandler@skerrysignal.ca">chandler@skerrysignal.ca</a></p>
+        <p><span class="label">Service area</span>Nova Scotia · New Brunswick · PEI · Newfoundland &amp; Labrador</p>
+        <p><span class="label">Book directly</span><a class="btn" style="margin-top:6px" href="mailto:chandler@skerrysignal.ca?subject=Lead%20audit%20request&amp;body=Hi%20Chandler%2C%20I%27d%20like%20to%20book%20a%2015-minute%20lead%20audit.%20My%20trade%20and%20city%3A%20">Email me to book →</a></p>
+      </div>
+      <div class="form-card">
+        <!-- Wire to Make.com webhook / CallRail form on deploy -->
+        <form action="mailto:chandler@skerrysignal.ca" method="post" enctype="text/plain">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" required>
+          <label for="business">Business &amp; trade</label>
+          <input id="business" name="business" type="text" placeholder="e.g. Smith Heating — HVAC" required>
+          <label for="phone">Best phone</label>
+          <input id="phone" name="phone" type="tel" required>
+          <button class="btn" style="width:100%;border:none;cursor:pointer" type="submit">Request my lead audit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">Skerry<span style="color:#7fe3e8">Signal</span></div>
+    <p>Exclusive lead generation for Atlantic Canada home service contractors.</p>
+    <p style="margin-top:8px">A <strong>Strandway Ventures</strong> company · <a href="mailto:chandler@skerrysignal.ca">chandler@skerrysignal.ca</a> · (902) 330-7927</p>
+    <p style="margin-top:8px;font-size:.82rem;color:#6b8290">© 2026 Skerry Signal. All rights reserved.</p>
+  </div>
+</footer>
+
+<a class="sticky-call" href="tel:+19023307927">📞 Call (902) 330-7927</a>
+
+</body>
+</html>
