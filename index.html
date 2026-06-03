@@ -12,8 +12,8 @@
 <link rel="canonical" href="https://skerrysignal.ca">
 <style>
   :root{
-    --navy:#0d2438; --teal:#1b8a8f; --teal-dark:#13686c; --sand:#f5f1e8;
-    --ink:#1a2733; --muted:#5a6b78; --line:#e2ddd0; --white:#ffffff;
+    --navy:#0d2438; --navy2:#143049; --teal:#1b8a8f; --teal-dark:#13686c; --teal-light:#7fe3e8;
+    --sand:#f5f1e8; --ink:#1a2733; --muted:#5a6b78; --line:#e2ddd0; --white:#ffffff;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -21,91 +21,121 @@
   h1,h2,h3{line-height:1.2;color:var(--navy);font-weight:700}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
-  .btn{display:inline-block;background:var(--teal);color:#fff;font-weight:700;padding:15px 30px;border-radius:8px;font-size:1.05rem;transition:background .2s}
-  .btn:hover{background:var(--teal-dark)}
+  .btn{display:inline-block;background:var(--teal);color:#fff;font-weight:700;padding:15px 30px;border-radius:8px;font-size:1.05rem;transition:transform .15s,background .2s;box-shadow:0 4px 14px rgba(27,138,143,.28)}
+  .btn:hover{background:var(--teal-dark);transform:translateY(-1px)}
   .btn-lg{font-size:1.15rem;padding:17px 38px}
+  .btn-ghost{background:transparent;border:1.5px solid rgba(255,255,255,.4);color:#fff;box-shadow:none}
+  .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
 
   /* Header */
-  header{position:sticky;top:0;background:var(--white);border-bottom:1px solid var(--line);z-index:50}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;max-width:1080px;margin:0 auto}
-  .logo{font-size:1.35rem;font-weight:800;color:var(--navy);letter-spacing:-.5px}
-  .logo span{color:var(--teal)}
-  .nav-phone{font-weight:700;color:var(--navy);font-size:1.05rem}
-  .nav-phone span{color:var(--teal)}
+  header{position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:50}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;max-width:1080px;margin:0 auto}
+  .logo-svg{height:40px;width:auto;display:block}
+  .nav-right{display:flex;align-items:center;gap:22px}
+  .nav-phone{font-weight:700;color:var(--navy);font-size:1.02rem;display:flex;align-items:center;gap:7px}
+  .nav-phone svg{width:17px;height:17px;fill:var(--teal)}
+  .nav-cta{background:var(--teal);color:#fff;padding:9px 18px;border-radius:7px;font-weight:700;font-size:.95rem}
+  .nav-cta:hover{background:var(--teal-dark)}
 
   /* Hero */
-  .hero{background:linear-gradient(160deg,var(--navy) 0%,#143049 100%);color:#fff;padding:72px 0 80px}
-  .hero h1{color:#fff;font-size:2.7rem;max-width:760px;letter-spacing:-1px}
-  .hero .lede{color:#cfe0e6;font-size:1.25rem;max-width:640px;margin:20px 0 32px}
-  .hero .sub{color:#8fb4bd;font-size:.95rem;margin-top:18px}
-  .pill{display:inline-block;background:rgba(27,138,143,.22);color:#7fe3e8;font-weight:700;font-size:.82rem;letter-spacing:.5px;text-transform:uppercase;padding:7px 15px;border-radius:30px;margin-bottom:22px}
+  .hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;padding:80px 0 76px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-120px;top:-80px;width:420px;height:420px;background:radial-gradient(circle,rgba(27,138,143,.25),transparent 70%);border-radius:50%}
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{color:#fff;font-size:2.9rem;max-width:780px;letter-spacing:-1.2px}
+  .hero .lede{color:#cfe0e6;font-size:1.25rem;max-width:660px;margin:22px 0 34px}
+  .hero-cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero .sub{color:#8fb4bd;font-size:.95rem;margin-top:22px;display:flex;align-items:center;gap:8px}
+  .hero .sub svg{width:16px;height:16px;fill:var(--teal-light);flex:0 0 16px}
+  .pill{display:inline-block;background:rgba(27,138,143,.22);color:var(--teal-light);font-weight:700;font-size:.82rem;letter-spacing:.5px;text-transform:uppercase;padding:7px 15px;border-radius:30px;margin-bottom:24px}
+
+  /* Stat band */
+  .statband{background:var(--sand);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:38px 0;text-align:center}
+  .stat .num{font-size:2.5rem;font-weight:800;color:var(--teal);letter-spacing:-1px;line-height:1}
+  .stat .lbl{color:var(--muted);font-size:.98rem;margin-top:8px;max-width:280px;margin-left:auto;margin-right:auto}
+  .stat .src{font-size:.74rem;color:#9aa8b2;margin-top:6px}
 
   /* Sections */
-  section{padding:64px 0}
+  section{padding:66px 0}
   .section-tag{color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:.82rem;margin-bottom:10px}
-  h2{font-size:2rem;max-width:680px;margin-bottom:14px;letter-spacing:-.5px}
-  .section-intro{color:var(--muted);font-size:1.1rem;max-width:620px;margin-bottom:38px}
+  h2{font-size:2.05rem;max-width:700px;margin-bottom:14px;letter-spacing:-.6px}
+  .section-intro{color:var(--muted);font-size:1.1rem;max-width:640px;margin-bottom:40px}
 
-  /* Cards */
+  /* Cards / trades */
   .grid{display:grid;gap:20px}
-  .grid-3{grid-template-columns:repeat(3,1fr)}
   .grid-5{grid-template-columns:repeat(5,1fr)}
-  .card{background:var(--sand);border:1px solid var(--line);border-radius:12px;padding:26px}
-  .card h3{font-size:1.15rem;margin-bottom:8px}
-  .card p{color:var(--muted);font-size:.96rem}
-  .trade-card{background:var(--white);text-align:center;padding:22px 14px}
-  .trade-card .ico{font-size:1.8rem;margin-bottom:8px}
+  .trade-card{background:var(--white);border:1px solid var(--line);border-radius:14px;text-align:center;padding:26px 14px;transition:transform .15s,box-shadow .2s}
+  .trade-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(13,36,56,.08)}
+  .trade-card .ico{width:46px;height:46px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;background:rgba(27,138,143,.1);border-radius:12px}
+  .trade-card .ico svg{width:26px;height:26px;stroke:var(--teal);fill:none;stroke-width:1.9}
   .trade-card h3{font-size:1rem}
 
   /* Steps */
-  .steps{counter-reset:step}
-  .step{display:flex;gap:20px;align-items:flex-start;margin-bottom:26px}
-  .step .num{flex:0 0 46px;height:46px;background:var(--teal);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem}
-  .step h3{font-size:1.15rem;margin-bottom:4px}
-  .step p{color:var(--muted)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:38px}
+  .step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:28px 24px}
+  .step .num{width:44px;height:44px;background:var(--teal);color:#fff;border-radius:11px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem;margin-bottom:16px}
+  .step h3{font-size:1.18rem;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.98rem}
 
   /* Why band */
   .band{background:var(--sand)}
-  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:34px}
-  .why .item h3{display:flex;align-items:center;gap:10px;font-size:1.1rem;margin-bottom:6px}
+  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:8px}
+  .why .item{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px}
+  .why .item .wh{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .why .item .wh svg{width:24px;height:24px;stroke:var(--teal);fill:none;stroke-width:2;flex:0 0 24px}
+  .why .item h3{font-size:1.12rem}
   .why .item p{color:var(--muted)}
-  .check{color:var(--teal);font-weight:800}
 
-  /* Case logic */
-  .caselogic{background:var(--navy);color:#fff;text-align:center}
-  .caselogic h2{color:#fff;margin:0 auto 14px}
-  .caselogic p{color:#cfe0e6;font-size:1.15rem;max-width:600px;margin:0 auto 30px}
+  /* Founding partner band */
+  .founding{background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;text-align:center}
+  .founding h2{color:#fff;margin:0 auto 16px}
+  .founding p{color:#cfe0e6;font-size:1.12rem;max-width:640px;margin:0 auto 16px}
+  .founding .openslots{display:inline-flex;gap:8px;align-items:center;background:rgba(27,138,143,.2);color:var(--teal-light);font-weight:700;padding:9px 18px;border-radius:30px;font-size:.92rem;margin-bottom:24px}
+  .founding .openslots .dot{width:9px;height:9px;border-radius:50%;background:#42d77d;box-shadow:0 0 0 4px rgba(66,215,125,.25)}
+
+  /* About */
+  .about{display:grid;grid-template-columns:300px 1fr;gap:40px;align-items:center}
+  .about-card{background:var(--navy);border-radius:16px;padding:40px 28px;text-align:center;color:#fff}
+  .about-card .logomark{width:96px;height:96px;margin:0 auto 18px;background:rgba(27,138,143,.18);border-radius:50%;display:flex;align-items:center;justify-content:center}
+  .about-card .logomark svg{width:54px;height:54px}
+  .about-card .nm{font-weight:800;font-size:1.25rem}
+  .about-card .rl{color:var(--teal-light);font-size:.95rem;margin-top:2px}
+  .about-card .loc{color:#8fb4bd;font-size:.86rem;margin-top:10px}
+  .about p{color:var(--muted);margin-bottom:12px}
+  .about h2{margin-bottom:14px}
+
+  /* FAQ */
+  .faq-item{border-bottom:1px solid var(--line);padding:22px 0}
+  .faq-item:first-child{border-top:1px solid var(--line)}
+  .faq-q{font-weight:700;color:var(--navy);font-size:1.12rem;margin-bottom:8px}
+  .faq-a{color:var(--muted);font-size:1rem}
 
   /* Contact */
   .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-  .contact-info p{margin-bottom:14px;font-size:1.05rem}
+  .contact-info p{margin-bottom:16px;font-size:1.05rem}
   .contact-info .label{color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:2px}
   form label{display:block;font-weight:600;margin-bottom:6px;font-size:.92rem}
-  form input,form select,form textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;margin-bottom:16px;font-size:1rem;font-family:inherit}
-  .form-card{background:var(--sand);border:1px solid var(--line);border-radius:12px;padding:28px}
-
-  /* About */
-  .about{display:grid;grid-template-columns:160px 1fr;gap:28px;align-items:center}
-  .headshot{width:160px;height:160px;border-radius:12px;background:#d8d2c4 center/cover;border:1px solid var(--line)}
-  .about p{color:var(--muted)}
+  form input,form select{width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;margin-bottom:16px;font-size:1rem;font-family:inherit}
+  .form-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:30px;box-shadow:0 8px 30px rgba(13,36,56,.06)}
 
   /* Footer */
-  footer{background:var(--navy);color:#9fb3bf;padding:34px 0;font-size:.92rem;text-align:center}
-  footer .logo{color:#fff;margin-bottom:8px;display:inline-block}
-  footer a{color:#7fe3e8}
+  footer{background:var(--navy);color:#9fb3bf;padding:40px 0;font-size:.92rem;text-align:center}
+  footer .footlogo{margin-bottom:12px}
+  footer .footlogo svg{height:38px}
+  footer a{color:var(--teal-light)}
 
-  /* Sticky mobile call */
   .sticky-call{display:none}
 
   @media(max-width:760px){
-    .hero h1{font-size:2rem}
+    .hero h1{font-size:2.05rem}
     .hero .lede{font-size:1.1rem}
     h2{font-size:1.6rem}
-    .grid-3,.grid-5,.why,.contact-grid,.about{grid-template-columns:1fr}
     .grid-5{grid-template-columns:1fr 1fr}
-    .nav-phone{display:none}
+    .steps,.why,.contact-grid,.about,.stats{grid-template-columns:1fr}
+    .stats .stat{padding:6px 0}
+    .nav-phone,.nav-cta{display:none}
     .about{text-align:center}
-    .headshot{margin:0 auto}
+    .about-card{max-width:300px;margin:0 auto}
     body{padding-bottom:64px}
     .sticky-call{display:flex;position:fixed;bottom:0;left:0;right:0;background:var(--teal);color:#fff;font-weight:800;font-size:1.1rem;padding:18px;align-items:center;justify-content:center;gap:8px;z-index:60}
   }
@@ -115,8 +145,21 @@
 
 <header>
   <div class="nav">
-    <div class="logo">Skerry<span>Signal</span></div>
-    <a class="nav-phone" href="tel:+19023307927">📞 <span>(902) 330-7927</span></a>
+    <a href="#" aria-label="Skerry Signal home">
+      <svg class="logo-svg" viewBox="0 0 240 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Skerry Signal">
+        <circle cx="28" cy="20" r="4.5" fill="#1b8a8f"/>
+        <path d="M19.5 20 a8.5 8.5 0 0 1 17 0" fill="none" stroke="#1b8a8f" stroke-width="2.4" stroke-linecap="round" opacity="0.75"/>
+        <path d="M14 20 a14 14 0 0 1 28 0" fill="none" stroke="#1b8a8f" stroke-width="2.4" stroke-linecap="round" opacity="0.4"/>
+        <path d="M10 38 q8 -10 18 -10 q10 0 18 10 z" fill="#0d2438"/>
+        <path d="M8 44 h40" stroke="#1b8a8f" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+        <path d="M13 49 h30" stroke="#1b8a8f" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+        <text x="60" y="34" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" font-size="25" font-weight="800" letter-spacing="-0.5" fill="#0d2438">Skerry<tspan fill="#1b8a8f">Signal</tspan></text>
+      </svg>
+    </a>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:+19023307927"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>(902) 330-7927</a>
+      <a class="nav-cta" href="#contact">Book a lead audit</a>
+    </div>
   </div>
 </header>
 
@@ -126,10 +169,36 @@
     <span class="pill">Atlantic Canada Home Services</span>
     <h1>More booked jobs from Google. Exclusive to your business.</h1>
     <p class="lede">We help Atlantic Canada HVAC, plumbing, roofing, and electrical contractors get exclusive, ready-to-book leads from Google — without long contracts or wasted ad spend.</p>
-    <a class="btn btn-lg" href="#contact">Book a 15-min lead audit</a>
-    <p class="sub">One business per city, per trade. Your leads stay yours.</p>
+    <div class="hero-cta-row">
+      <a class="btn btn-lg" href="#contact">Book a 15-min lead audit</a>
+      <a class="btn btn-lg btn-ghost" href="#how">See how it works</a>
+    </div>
+    <p class="sub"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>One business per city, per trade. Your leads stay yours.</p>
   </div>
 </section>
+
+<!-- STAT BAND -->
+<div class="statband">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat">
+        <div class="num">21×</div>
+        <div class="lbl">more likely to qualify a lead when you respond in 5 minutes vs. 30</div>
+        <div class="src">MIT / Kellogg lead-response study</div>
+      </div>
+      <div class="stat">
+        <div class="num">78%</div>
+        <div class="lbl">of customers buy from the business that responds first — not cheapest</div>
+        <div class="src">Lead-response research, 2025</div>
+      </div>
+      <div class="stat">
+        <div class="num">61%</div>
+        <div class="lbl">drop in organic clicks where Google now shows AI Overviews</div>
+        <div class="src">Seer Interactive, 2025</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- 2. WHO WE SERVE -->
 <section>
@@ -138,24 +207,24 @@
     <h2>Built for Atlantic Canada's trades</h2>
     <p class="section-intro">We focus on owner-operated and small-team home service businesses across Nova Scotia, New Brunswick, PEI, and Newfoundland.</p>
     <div class="grid grid-5">
-      <div class="card trade-card"><div class="ico">🔥</div><h3>HVAC</h3></div>
-      <div class="card trade-card"><div class="ico">🔧</div><h3>Plumbing</h3></div>
-      <div class="card trade-card"><div class="ico">🏠</div><h3>Roofing</h3></div>
-      <div class="card trade-card"><div class="ico">⚡</div><h3>Electrical</h3></div>
-      <div class="card trade-card"><div class="ico">🏭</div><h3>Industrial Supply</h3></div>
+      <div class="trade-card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3c0 4-4 5-4 9a4 4 0 0 0 8 0c0-4-4-5-4-9z" stroke-linejoin="round"/></svg></div><h3>HVAC</h3></div>
+      <div class="trade-card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14 4a4 4 0 0 0-5 5l-5 5 2 2 5-5a4 4 0 0 0 5-5l-2.5 2.5L14 6.5z" stroke-linejoin="round"/></svg></div><h3>Plumbing</h3></div>
+      <div class="trade-card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12 12 4l9 8M6 10v9h12v-9" stroke-linejoin="round" stroke-linecap="round"/></svg></div><h3>Roofing</h3></div>
+      <div class="trade-card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M13 3 5 13h6l-1 8 8-10h-6z" stroke-linejoin="round"/></svg></div><h3>Electrical</h3></div>
+      <div class="trade-card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 21V9l6-3v3l6-3v3l6-3v15z" stroke-linejoin="round"/></svg></div><h3>Industrial Supply</h3></div>
     </div>
   </div>
 </section>
 
 <!-- 3. HOW IT WORKS -->
-<section class="band">
+<section class="band" id="how">
   <div class="wrap">
     <div class="section-tag">How it works</div>
     <h2>Three steps to a fuller schedule</h2>
-    <div class="steps" style="margin-top:34px">
-      <div class="step"><div class="num">1</div><div><h3>We rank</h3><p>We build and rank a local site on Google and Google Maps for the searches homeowners actually use — "HVAC company Halifax," "emergency plumber," and more.</p></div></div>
-      <div class="step"><div class="num">2</div><div><h3>Leads come in</h3><p>Homeowners call or fill out the form. Our AI qualifies every lead — service type, timeline, location, homeowner status — before it ever reaches you.</p></div></div>
-      <div class="step"><div class="num">3</div><div><h3>We route to you</h3><p>Qualified leads are sent to your phone and inbox within minutes, with a full call recording. You call back, you book the job.</p></div></div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>We rank</h3><p>We build and rank a local site on Google and Google Maps for the searches homeowners actually use — "HVAC company Halifax," "emergency plumber," and more.</p></div>
+      <div class="step"><div class="num">2</div><h3>Leads come in</h3><p>Homeowners call or fill out the form. Our AI qualifies every lead — service type, timeline, location, homeowner status — before it ever reaches you.</p></div>
+      <div class="step"><div class="num">3</div><h3>We route to you</h3><p>Qualified leads are sent to your phone and inbox within minutes, with a full call recording. You call back, you book the job.</p></div>
     </div>
   </div>
 </section>
@@ -166,19 +235,21 @@
     <div class="section-tag">Why Skerry Signal</div>
     <h2>Three reasons contractors choose us</h2>
     <div class="why">
-      <div class="item"><h3><span class="check">✓</span> Atlantic Canada focus</h3><p>We only work in NS, NB, PEI, and NL. We know these markets, the seasons, and the search behaviour — not a national template applied to your town.</p></div>
-      <div class="item"><h3><span class="check">✓</span> Exclusive leads</h3><p>One business per city, per trade. The leads we generate go to you and only you. We never sell the same lead twice.</p></div>
-      <div class="item"><h3><span class="check">✓</span> No long contracts</h3><p>Start month-to-month. If the leads aren't booking jobs, you're free to walk. We earn the relationship every month.</p></div>
+      <div class="item"><div class="wh"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z" stroke-linejoin="round"/><circle cx="12" cy="11" r="2.5"/></svg><h3>Atlantic Canada focus</h3></div><p>We only work in NS, NB, PEI, and NL. We know these markets, the seasons, and the search behaviour — not a national template applied to your town.</p></div>
+      <div class="item"><div class="wh"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.5 8 8 11 4.5-3 8-6 8-11V5z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>Exclusive leads</h3></div><p>One business per city, per trade. The leads we generate go to you and only you. We never sell the same lead twice.</p></div>
+      <div class="item"><div class="wh"><svg viewBox="0 0 24 24"><path d="M5 12h14M5 12l5-5M5 12l5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>No long contracts</h3></div><p>Start month-to-month. If the leads aren't booking jobs, you're free to walk. We earn the relationship every month.</p></div>
     </div>
   </div>
 </section>
 
-<!-- 5. CASE LOGIC -->
-<section class="caselogic">
+<!-- 5. FOUNDING PARTNER -->
+<section class="founding">
   <div class="wrap">
-    <h2>See the lead flow in action</h2>
-    <p>Book a 15-minute call and we'll walk you through exactly how our lead system works — how homeowner leads come in, how they're qualified, and whether your business is a fit to receive them exclusively.</p>
-    <a class="btn btn-lg" href="#contact">Book your lead audit</a>
+    <div class="openslots"><span class="dot"></span>Now selecting founding partners</div>
+    <h2>We're hand-picking our first contractor in each market</h2>
+    <p>Skerry Signal is new, and that's the opportunity. We're choosing one founding contractor per trade, per city — at founding-partner pricing — to build the first results in each market together.</p>
+    <p>When you sign on early, you lock in your exclusive market before a competitor down the street does. Once a city is claimed, it's closed.</p>
+    <a class="btn btn-lg" href="#contact" style="margin-top:14px">Claim your market</a>
   </div>
 </section>
 
@@ -187,22 +258,52 @@
   <div class="wrap">
     <div class="section-tag">About</div>
     <div class="about">
-      <div class="headshot" style="background-image:url('chandler-headshot.jpg')"></div>
+      <div class="about-card">
+        <div class="logomark">
+          <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="20" r="5" fill="#7fe3e8"/>
+            <path d="M18 20 a10 10 0 0 1 20 0" fill="none" stroke="#7fe3e8" stroke-width="2.6" stroke-linecap="round" opacity="0.7"/>
+            <path d="M12 20 a16 16 0 0 1 32 0" fill="none" stroke="#7fe3e8" stroke-width="2.6" stroke-linecap="round" opacity="0.38"/>
+            <path d="M10 40 q9 -11 18 -11 q9 0 18 11 z" fill="#fff" opacity="0.9"/>
+            <path d="M8 46 h40" stroke="#7fe3e8" stroke-width="2.2" stroke-linecap="round" opacity="0.55"/>
+          </svg>
+        </div>
+        <div class="nm">Chandler</div>
+        <div class="rl">Founder, Skerry Signal</div>
+        <div class="loc">Charlottetown, Prince Edward Island</div>
+      </div>
       <div>
-        <h2 style="margin-bottom:10px">Built by an operator, not an agency</h2>
-        <p>Skerry Signal is run by Chandler, founder, out of Charlottetown, Prince Edward Island. After years building and ranking websites, the model is simple: rank a site, generate real homeowner leads, and route them exclusively to one trusted contractor per market. No bloated retainers, no hidden ad spend, no leads sold to your competitors down the street.</p>
-        <p style="margin-top:10px">Skerry Signal is a <a href="https://strandwayventures.com" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600">Strandway Ventures</a> company.</p>
+        <h2>Built by an operator, not an agency</h2>
+        <p>Skerry Signal is run by Chandler — a UPEI business graduate who grew up around farm work on Prince Edward Island. That background shapes how this business runs: show up early, do the work, and let results speak louder than promises.</p>
+        <p>The model is simple: build and rank a local site, generate real homeowner leads, qualify each one with AI, and route them exclusively to one trusted contractor per market. No bloated retainers, no hidden ad spend, no leads sold to your competitors down the street.</p>
+        <p>Skerry Signal is a <a href="https://strandwayventures.com" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600">Strandway Ventures</a> company.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <div class="section-tag">Common questions</div>
+    <h2>Straight answers before we talk</h2>
+    <p class="section-intro">The questions every contractor asks. No fine print.</p>
+    <div class="faq">
+      <div class="faq-item"><div class="faq-q">How is this different from HomeStars, Bark, or buying leads online?</div><div class="faq-a">Those platforms sell the same lead to three, four, five contractors at once — so you're racing competitors on every call. Our leads are exclusive: one business per city, per trade. The homeowner reaches you, and only you.</div></div>
+      <div class="faq-item"><div class="faq-q">What does it cost?</div><div class="faq-a">It depends on your trade and market, and we keep it simple — either a flat monthly fee or a per-lead price, agreed up front. Founding partners get early pricing locked in. We'll give you exact numbers on the 15-minute call once we've looked at your market.</div></div>
+      <div class="faq-item"><div class="faq-q">What if I don't get any leads?</div><div class="faq-a">You're month-to-month, never locked into a long contract. If the leads aren't turning into booked jobs, you're free to walk. We only keep clients by earning it every month.</div></div>
+      <div class="faq-item"><div class="faq-q">Are the leads any good, or just tire-kickers?</div><div class="faq-a">Every lead is pre-qualified by AI before it reaches you — service type, timeline, location, and whether they actually own the home. You get a full call recording with each one, so you can hear the lead for yourself.</div></div>
+      <div class="faq-item"><div class="faq-q">Do I have to be a big company?</div><div class="faq-a">No — the opposite. We're built for owner-operators and small teams across Atlantic Canada who are great at the trade but don't have time to chase marketing. That's exactly who we work with.</div></div>
+    </div>
+  </div>
+</section>
+
 <!-- 6. CONTACT -->
-<section id="contact">
+<section id="contact" class="band">
   <div class="wrap">
     <div class="section-tag">Get started</div>
     <h2>Book a 15-minute lead audit</h2>
-    <p class="section-intro">Tell us your trade and city. We'll show you the lead flow and whether your market is open.</p>
+    <p class="section-intro">Tell us your trade and city. We'll show you the lead flow and whether your market is still open.</p>
     <div class="contact-grid">
       <div class="contact-info">
         <p><span class="label">Phone</span><a href="tel:+19023307927"><strong>(902) 330-7927</strong></a></p>
@@ -228,14 +329,23 @@
 
 <footer>
   <div class="wrap">
-    <div class="logo">Skerry<span style="color:#7fe3e8">Signal</span></div>
+    <div class="footlogo">
+      <svg viewBox="0 0 240 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Skerry Signal">
+        <circle cx="28" cy="20" r="4.5" fill="#7fe3e8"/>
+        <path d="M19.5 20 a8.5 8.5 0 0 1 17 0" fill="none" stroke="#7fe3e8" stroke-width="2.4" stroke-linecap="round" opacity="0.75"/>
+        <path d="M14 20 a14 14 0 0 1 28 0" fill="none" stroke="#7fe3e8" stroke-width="2.4" stroke-linecap="round" opacity="0.4"/>
+        <path d="M10 38 q8 -10 18 -10 q10 0 18 10 z" fill="#7fe3e8"/>
+        <path d="M8 44 h40" stroke="#7fe3e8" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+        <text x="60" y="34" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" font-size="25" font-weight="800" letter-spacing="-0.5" fill="#ffffff">Skerry<tspan fill="#7fe3e8">Signal</tspan></text>
+      </svg>
+    </div>
     <p>Exclusive lead generation for Atlantic Canada home service contractors.</p>
-    <p style="margin-top:8px">A <a href="https://strandwayventures.com" target="_blank" rel="noopener" style="color:#7fe3e8;font-weight:600">Strandway Ventures</a> company · <a href="mailto:founder@skerrysignal.ca">founder@skerrysignal.ca</a> · (902) 330-7927</p>
+    <p style="margin-top:8px">A <a href="https://strandwayventures.com" target="_blank" rel="noopener" style="font-weight:600">Strandway Ventures</a> company · <a href="mailto:founder@skerrysignal.ca">founder@skerrysignal.ca</a> · (902) 330-7927</p>
     <p style="margin-top:8px;font-size:.82rem;color:#6b8290">© 2026 Skerry Signal. All rights reserved.</p>
   </div>
 </footer>
 
-<a class="sticky-call" href="tel:+19023307927">📞 Call (902) 330-7927</a>
+<a class="sticky-call" href="tel:+19023307927">Call (902) 330-7927</a>
 
 </body>
 </html>
