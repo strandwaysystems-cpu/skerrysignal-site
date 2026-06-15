@@ -1,0 +1,15 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Skerry Signal">
+  <!-- Background -->
+  <rect width="64" height="64" rx="13" fill="#0d2438"/>
+  <g transform="translate(32 30) scale(1.35) translate(-28 -28)">
+    <!-- signal arcs (beacon pulse) -->
+    <circle cx="28" cy="20" r="4.5" fill="#1b8a8f"/>
+    <path d="M19.5 20 a8.5 8.5 0 0 1 17 0" fill="none" stroke="#7fe3e8" stroke-width="2.6" stroke-linecap="round" opacity="0.85"/>
+    <path d="M14 20 a14 14 0 0 1 28 0" fill="none" stroke="#7fe3e8" stroke-width="2.6" stroke-linecap="round" opacity="0.5"/>
+    <!-- skerry / rock -->
+    <path d="M10 38 q8 -10 18 -10 q10 0 18 10 z" fill="#7fe3e8"/>
+    <!-- water lines -->
+    <path d="M8 44 h40" stroke="#1b8a8f" stroke-width="2.4" stroke-linecap="round" opacity="0.75"/>
+    <path d="M13 49 h30" stroke="#1b8a8f" stroke-width="2.4" stroke-linecap="round" opacity="0.45"/>
+  </g>
+</svg>
